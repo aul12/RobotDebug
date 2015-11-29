@@ -42,10 +42,6 @@ enum ADDRESS{
     PIXIEY1 = 0xB9,
     PIXIEW1 = 0xBA,
     PIXIEH1 = 0xBB,
-    PIXIEX2 = 0xBC,
-    PIXIEY2 = 0xBD,
-    PIXIEW2 = 0xBE,
-    PIXIEH2 = 0xBF,
 
     //Berechnete Werte
     BALLWINKEL = 0xC0,
@@ -56,7 +52,6 @@ enum ADDRESS{
     DELTAPHI = 0xC5,
     SPIELPROGRAMM = 0xC6,
     KAMERA_WINKEL = 0xC7,
-    KAMERA_RESULT = 0xC8,
 
     //Digital
     MOTORSCHALTER = 0xD0,

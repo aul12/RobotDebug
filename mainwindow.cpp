@@ -32,6 +32,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->actionZeige_Konsole->setChecked(true);
     ui->actionZeige_USB_Optionen->setChecked(true);
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateUI()));
+    timer->start(40);
 }
 
 MainWindow::~MainWindow()
@@ -40,6 +44,11 @@ MainWindow::~MainWindow()
     debug.serial->close();
 }
 
+
+void MainWindow::updateUI(){
+    this->updateLabels();
+    this->update();
+}
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
@@ -104,6 +113,23 @@ void MainWindow::updateLabels(){
     ui->labelPixieY1->setText("Y: "+QString::number(debug.getData(PIXIEY1)));
     ui->labelPixieH1->setText("Height: "+QString::number(debug.getData(PIXIEH1)));
     ui->labelPixieW1->setText("Width: "+QString::number(debug.getData(PIXIEW1)));
+
+    ui->labelBerechnetBallwinkel->setText("Ballwinkel: "+QString::number(debug.getData(BALLWINKEL)));
+    ui->labelBerechnetFahrtwinkel->setText("Fahrtrichtung: "+QString::number(debug.getData(FAHRTRICHTUNG)));
+    ui->labelBerechnetPosX->setText("Position X: "+QString::number(debug.getData(POSX)));
+    ui->labelBerechnetPosY->setText("Position Y: "+QString::number(debug.getData(POSY)));
+    ui->labelBerechnetSollPhi->setText("Soll-Phi: "+QString::number(debug.getData(SOLLPHI)));
+    ui->labelBerechnetDeltaPhi->setText("Delta-Phi: "+QString::number(debug.getData(DELTAPHI)));
+    ui->labelBerechnetProgramm->setText("Spielprogramm: "+QString::number(debug.getData(SPIELPROGRAMM)));
+    ui->labelBerechnetKameraWinkel->setText("Kamerawinkel: "+QString::number(debug.getData(KAMERA_WINKEL)));
+
+    ui->labelDigitalSchalterMotor->setText("Schalter Motor: "+QString::number(debug.getData(MOTORSCHALTER)));
+    ui->labelDigitalSchalterDisplay->setText("Schalter Display: "+QString::number(debug.getData(DISPLAYSCHALTER)));
+    ui->labelDigitalSchalterLinie->setText("Schalter Linie: "+QString::number(debug.getData(LINIENSCHALTER)));
+    ui->labelDigitalSchalterProgrammLinks->setText("Schalter Programm Links: "+QString::number(debug.getData(PROGRAMMLINKS)));
+    ui->labelDigitalSchalterProgrammRechts->setText("Schalter Programm Rechts: "+QString::number(debug.getData(PROGRAMMRECHTS)));
+    ui->labelDigitalSchalterEEPROM->setText("Taster EEPROM: "+QString::number(debug.getData(EEPROMTASTER)));
+    ui->labelDigitalLichtschranke->setText("Lichtschranke: "+QString::number(debug.getData(LICHTSCHRANKE)));
 }
 
 void MainWindow::readData(){
@@ -111,9 +137,6 @@ void MainWindow::readData(){
         y_pos = debug.getData(POSX);
         x_pos = debug.getData(POSY);
         roboter_drehung = debug.getData(DELTAPHI);
-
-        this->updateLabels();
-        this->update();
     }
 }
 
@@ -151,5 +174,8 @@ void MainWindow::on_pushButtonSerialSend_clicked()
     int addr = ui->lineEditSerialSendAddress->text().toInt();
     int data = ui->lineEditSerialSendData->text().toInt();
     int len = debug.sendData(addr, data);
-    ui->textBrowser->append("Sent "+QString::number(len)+" bytes");
+    if(len == -1)
+        ui->textBrowser->append("Fehler beim senden, ist das Programm verbunden?");
+    else
+        ui->textBrowser->append("Gesendet: "+QString::number(len)+" bytes");
 }

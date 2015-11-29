@@ -35,6 +35,8 @@ private slots:
 
     void on_pushButtonSerialSend_clicked();
 
+    void updateUI();
+
 private:
     Ui::MainWindow *ui;
     void updateLabels();
