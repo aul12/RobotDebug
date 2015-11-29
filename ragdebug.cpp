@@ -74,4 +74,9 @@ int RAGDebug::getData(int addresse){
     return werte[addresse];
 }
 
+QString RAGDebug::getString(int addresse)
+{
+    return QString::number(this->getData(addresse));
+}
+
 

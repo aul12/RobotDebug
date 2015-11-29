@@ -15,6 +15,7 @@ public:
     bool init(qint32 baud, QString port);
     int sendData(unsigned char addresse, int data);
     int getData(int addresse);
+    QString getString(int addresse);
     bool readData();
     QSerialPort * serial;
 

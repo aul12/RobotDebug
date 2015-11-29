@@ -82,63 +82,63 @@ void MainWindow::paintEvent(QPaintEvent *event)
 }
 
 void MainWindow::updateLabels(){
-    ui->labelADCA0->setText("ADC0: " + QString::number(debug.getData(ADCA0)));
-    ui->labelADCA1->setText("ADC1: " + QString::number(debug.getData(ADCA1)));
-    ui->labelADCA2->setText("ADC2: " + QString::number(debug.getData(ADCA2)));
-    ui->labelADCA3->setText("ADC3 " + QString::number(debug.getData(ADCA3)));
-    ui->labelADCA4->setText("ADC4: " + QString::number(debug.getData(ADCA4)));
-    ui->labelADCA5->setText("ADC5: " + QString::number(debug.getData(ADCA5)));
-    ui->labelADCA6->setText("ADC6: " + QString::number(debug.getData(ADCA6)));
-    ui->labelADCA7->setText("ADC7: " + QString::number(debug.getData(ADCA7)));
+    ui->labelADCA0->setText("ADC0: " + debug.getString(ADCA0));
+    ui->labelADCA1->setText("ADC1: " + debug.getString(ADCA1));
+    ui->labelADCA2->setText("ADC2: " + debug.getString(ADCA2));
+    ui->labelADCA3->setText("ADC3: " + debug.getString(ADCA3));
+    ui->labelADCA4->setText("ADC4: " + debug.getString(ADCA4));
+    ui->labelADCA5->setText("ADC5: " + debug.getString(ADCA5));
+    ui->labelADCA6->setText("ADC6: " + debug.getString(ADCA6));
+    ui->labelADCA7->setText("ADC7: " + debug.getString(ADCA7));
 
-    ui->labelADCB0->setText("ADC0: " + QString::number(debug.getData(ADCB0)));
-    ui->labelADCB1->setText("ADC1: " + QString::number(debug.getData(ADCB1)));
-    ui->labelADCB2->setText("ADC2: " + QString::number(debug.getData(ADCB2)));
-    ui->labelADCB3->setText("ADC3 " + QString::number(debug.getData(ADCB3)));
-    ui->labelADCB4->setText("ADC4: " + QString::number(debug.getData(ADCB4)));
-    ui->labelADCB5->setText("ADC5: " + QString::number(debug.getData(ADCB5)));
-    ui->labelADCB6->setText("ADC6: " + QString::number(debug.getData(ADCB6)));
-    ui->labelADCB7->setText("ADC7: " + QString::number(debug.getData(ADCB7)));
+    ui->labelADCB0->setText("ADC0: " + debug.getString(ADCB0));
+    ui->labelADCB1->setText("ADC1: " + debug.getString(ADCB1));
+    ui->labelADCB2->setText("ADC2: " + debug.getString(ADCB2));
+    ui->labelADCB3->setText("ADC3: " + debug.getString(ADCB3));
+    ui->labelADCB4->setText("ADC4: " + debug.getString(ADCB4));
+    ui->labelADCB5->setText("ADC5: " + debug.getString(ADCB5));
+    ui->labelADCB6->setText("ADC6: " + debug.getString(ADCB6));
+    ui->labelADCB7->setText("ADC7: " + debug.getString(ADCB7));
 
-    ui->labelI2C_CMPS->setText("CMPS: "+QString::number(debug.getData(CMPS)));
-    ui->labelI2C_MPU->setText("MPU: "+QString::number(debug.getData(MPU)));
-    ui->labelI2C_BNO->setText("BNO: "+QString::number(debug.getData(BNO055)));
-    ui->labelI2C_US0->setText("US0: "+QString::number(debug.getData(US0)));
-    ui->labelI2C_US1->setText("US1: "+QString::number(debug.getData(US1)));
-    ui->labelI2C_US2->setText("US2: "+QString::number(debug.getData(US2)));
-    ui->labelI2C_US3->setText("US3: "+QString::number(debug.getData(US3)));
+    ui->labelI2C_CMPS->setText("CMPS: "+debug.getString(CMPS));
+    ui->labelI2C_MPU->setText("MPU: "+debug.getString(MPU));
+    ui->labelI2C_BNO->setText("BNO: "+debug.getString(BNO055));
+    ui->labelI2C_US0->setText("US0: "+debug.getString(US0));
+    ui->labelI2C_US1->setText("US1: "+debug.getString(US1));
+    ui->labelI2C_US2->setText("US2: "+debug.getString(US2));
+    ui->labelI2C_US3->setText("US3: "+debug.getString(US3));
 
-    ui->labelPixieStatus->setText("Status: "+QString::number(debug.getData(PIXIE_ERROR)));
-    ui->labelPixieX1->setText("X: "+QString::number(debug.getData(PIXIEX1)));
-    ui->labelPixieY1->setText("Y: "+QString::number(debug.getData(PIXIEY1)));
-    ui->labelPixieH1->setText("Height: "+QString::number(debug.getData(PIXIEH1)));
-    ui->labelPixieW1->setText("Width: "+QString::number(debug.getData(PIXIEW1)));
+    ui->labelPixieStatus->setText("Status: "+debug.getString(PIXIE_ERROR));
+    ui->labelPixieX1->setText("X: "+debug.getString(PIXIEX1));
+    ui->labelPixieY1->setText("Y: "+debug.getString(PIXIEY1));
+    ui->labelPixieH1->setText("Height: "+debug.getString(PIXIEH1));
+    ui->labelPixieW1->setText("Width: "+debug.getString(PIXIEW1));
 
-    ui->labelBerechnetBallwinkel->setText("Ballwinkel: "+QString::number(debug.getData(BALLWINKEL)));
-    ui->labelBerechnetFahrtwinkel->setText("Fahrtrichtung: "+QString::number(debug.getData(FAHRTRICHTUNG)));
-    ui->labelBerechnetPosX->setText("Position X: "+QString::number(debug.getData(POSX)));
-    ui->labelBerechnetPosY->setText("Position Y: "+QString::number(debug.getData(POSY)));
-    ui->labelBerechnetSollPhi->setText("Soll-Phi: "+QString::number(debug.getData(SOLLPHI)));
-    ui->labelBerechnetDeltaPhi->setText("Delta-Phi: "+QString::number(debug.getData(DELTAPHI)));
-    ui->labelBerechnetProgramm->setText("Spielprogramm: "+QString::number(debug.getData(SPIELPROGRAMM)));
-    ui->labelBerechnetKameraWinkel->setText("Kamerawinkel: "+QString::number(debug.getData(KAMERA_WINKEL)));
+    ui->labelBerechnetBallwinkel->setText("Ballwinkel: "+debug.getString(BALLWINKEL));
+    ui->labelBerechnetFahrtwinkel->setText("Fahrtrichtung: "+debug.getString(FAHRTRICHTUNG));
+    ui->labelBerechnetPosX->setText("Position X: "+debug.getString(POSX));
+    ui->labelBerechnetPosY->setText("Position Y: "+debug.getString(POSY));
+    ui->labelBerechnetSollPhi->setText("Soll-Phi: "+debug.getString(SOLLPHI));
+    ui->labelBerechnetDeltaPhi->setText("Delta-Phi: "+debug.getString(DELTAPHI));
+    ui->labelBerechnetProgramm->setText("Spielprogramm: "+debug.getString(SPIELPROGRAMM));
+    ui->labelBerechnetKameraWinkel->setText("Kamerawinkel: "+debug.getString(KAMERA_WINKEL));
 
-    ui->labelDigitalSchalterMotor->setText("Schalter Motor: "+QString::number(debug.getData(MOTORSCHALTER)));
-    ui->labelDigitalSchalterDisplay->setText("Schalter Display: "+QString::number(debug.getData(DISPLAYSCHALTER)));
-    ui->labelDigitalSchalterLinie->setText("Schalter Linie: "+QString::number(debug.getData(LINIENSCHALTER)));
-    ui->labelDigitalSchalterProgrammLinks->setText("Schalter Programm Links: "+QString::number(debug.getData(PROGRAMMLINKS)));
-    ui->labelDigitalSchalterProgrammRechts->setText("Schalter Programm Rechts: "+QString::number(debug.getData(PROGRAMMRECHTS)));
-    ui->labelDigitalSchalterEEPROM->setText("Taster EEPROM: "+QString::number(debug.getData(EEPROMTASTER)));
-    ui->labelDigitalLichtschranke->setText("Lichtschranke: "+QString::number(debug.getData(LICHTSCHRANKE)));
+    ui->labelDigitalSchalterMotor->setText("Schalter Motor: "+debug.getString(MOTORSCHALTER));
+    ui->labelDigitalSchalterDisplay->setText("Schalter Display: "+debug.getString(DISPLAYSCHALTER));
+    ui->labelDigitalSchalterLinie->setText("Schalter Linie: "+debug.getString(LINIENSCHALTER));
+    ui->labelDigitalSchalterProgrammLinks->setText("Schalter Programm Links: "+debug.getString(PROGRAMMLINKS));
+    ui->labelDigitalSchalterProgrammRechts->setText("Schalter Programm Rechts: "+debug.getString(PROGRAMMRECHTS));
+    ui->labelDigitalSchalterEEPROM->setText("Taster EEPROM: "+debug.getString(EEPROMTASTER));
+    ui->labelDigitalLichtschranke->setText("Lichtschranke: "+debug.getString(LICHTSCHRANKE));
 
-    ui->labelMotor0->setText("Motor 0: "+QString::number(debug.getData(MOTO0)));
-    ui->labelMotor1->setText("Motor 1: "+QString::number(debug.getData(MOTO1)));
-    ui->labelMotor2->setText("Motor 2: "+QString::number(debug.getData(MOTO2)));
-    ui->labelMotor3->setText("Motor 3: "+QString::number(debug.getData(MOTO3)));
-    ui->labelMotorDribbler->setText("Dribbler: "+QString::number(debug.getData(DRIBBLER)));
-    ui->labelMotorSchuss->setText("Schuss: "+QString::number(debug.getData(SCHUSS)));
-    ui->labelMotorOutStatus->setText("Out-Status: "+QString::number(debug.getData(OUTSTATUS)));
-    ui->labelMotorOutWinkel->setText("Out-Winkel: "+QString::number(debug.getData(OUTWINKEL)));
+    ui->labelMotor0->setText("Motor 0: "+debug.getString(MOTO0));
+    ui->labelMotor1->setText("Motor 1: "+debug.getString(MOTO1));
+    ui->labelMotor2->setText("Motor 2: "+debug.getString(MOTO2));
+    ui->labelMotor3->setText("Motor 3: "+debug.getString(MOTO3));
+    ui->labelMotorDribbler->setText("Dribbler: "+debug.getString(DRIBBLER));
+    ui->labelMotorSchuss->setText("Schuss: "+debug.getString(SCHUSS));
+    ui->labelMotorOutStatus->setText("Out-Status: "+debug.getString(OUTSTATUS));
+    ui->labelMotorOutWinkel->setText("Out-Winkel: "+debug.getString(OUTWINKEL));
 
 }
 
