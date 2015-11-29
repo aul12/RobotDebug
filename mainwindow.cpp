@@ -130,6 +130,16 @@ void MainWindow::updateLabels(){
     ui->labelDigitalSchalterProgrammRechts->setText("Schalter Programm Rechts: "+QString::number(debug.getData(PROGRAMMRECHTS)));
     ui->labelDigitalSchalterEEPROM->setText("Taster EEPROM: "+QString::number(debug.getData(EEPROMTASTER)));
     ui->labelDigitalLichtschranke->setText("Lichtschranke: "+QString::number(debug.getData(LICHTSCHRANKE)));
+
+    ui->labelMotor0->setText("Motor 0: "+QString::number(debug.getData(MOTO0)));
+    ui->labelMotor1->setText("Motor 1: "+QString::number(debug.getData(MOTO1)));
+    ui->labelMotor2->setText("Motor 2: "+QString::number(debug.getData(MOTO2)));
+    ui->labelMotor3->setText("Motor 3: "+QString::number(debug.getData(MOTO3)));
+    ui->labelMotorDribbler->setText("Dribbler: "+QString::number(debug.getData(DRIBBLER)));
+    ui->labelMotorSchuss->setText("Schuss: "+QString::number(debug.getData(SCHUSS)));
+    ui->labelMotorOutStatus->setText("Out-Status: "+QString::number(debug.getData(OUTSTATUS)));
+    ui->labelMotorOutWinkel->setText("Out-Winkel: "+QString::number(debug.getData(OUTWINKEL)));
+
 }
 
 void MainWindow::readData(){
