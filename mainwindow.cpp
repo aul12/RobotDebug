@@ -147,6 +147,7 @@ void MainWindow::readData(){
         y_pos = debug.getData(POSX);
         x_pos = debug.getData(POSY);
         roboter_drehung = debug.getData(DELTAPHI);
+        ball_winkel = debug.getData(BALLWINKEL);
     }
 }
 

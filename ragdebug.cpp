@@ -2,7 +2,7 @@
 
 RAGDebug::RAGDebug()
 {
-
+   connected = false;
 
 }
 
@@ -69,8 +69,6 @@ int RAGDebug::sendData(unsigned char addresse, int wert){
 }
 
 int RAGDebug::getData(int addresse){
-    if(werte[addresse]==NULL)
-        return 0;
     return werte[addresse];
 }
 

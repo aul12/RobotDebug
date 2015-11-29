@@ -23,7 +23,7 @@ private:
 
     QByteArray buffer;
     int werte[256];
-    bool connected = false;
+    bool connected;
 
 
 
