@@ -52,6 +52,7 @@ enum ADDRESS{
     DELTAPHI = 0xC5,
     SPIELPROGRAMM = 0xC6,
     KAMERA_WINKEL = 0xC7,
+    BALLDISTANZ = 0xC8,
 
     //Digital
     MOTORSCHALTER = 0xD0,

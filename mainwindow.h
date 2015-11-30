@@ -37,6 +37,8 @@ private slots:
 
     void updateUI();
 
+    void on_actionZeige_Daten_toggled(bool arg1);
+
 private:
     Ui::MainWindow *ui;
     void updateLabels();

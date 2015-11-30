@@ -30,8 +30,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->actionZeige_Konsole->setChecked(true);
-    ui->actionZeige_USB_Optionen->setChecked(true);
+    #ifdef _WIN32
+        ui->lineEditPort->setText("COM1");
+    #endif
 
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateUI()));
@@ -122,6 +123,7 @@ void MainWindow::updateLabels(){
     ui->labelBerechnetDeltaPhi->setText("Delta-Phi: "+debug.getString(DELTAPHI));
     ui->labelBerechnetProgramm->setText("Spielprogramm: "+debug.getString(SPIELPROGRAMM));
     ui->labelBerechnetKameraWinkel->setText("Kamerawinkel: "+debug.getString(KAMERA_WINKEL));
+    ui->labelBerechnetBallDistanz->setText("Balldistanz: "+debug.getString(BALLDISTANZ));
 
     ui->labelDigitalSchalterMotor->setText("Schalter Motor: "+debug.getString(MOTORSCHALTER));
     ui->labelDigitalSchalterDisplay->setText("Schalter Display: "+debug.getString(DISPLAYSCHALTER));
@@ -148,6 +150,7 @@ void MainWindow::readData(){
         x_pos = debug.getData(POSY);
         roboter_drehung = debug.getData(DELTAPHI);
         ball_winkel = debug.getData(BALLWINKEL);
+        ball_abstand = debug.getData(BALLDISTANZ);
     }
 }
 
@@ -160,6 +163,11 @@ void MainWindow::on_actionZeige_Konsole_toggled(bool arg1)
 void MainWindow::on_actionZeige_USB_Optionen_toggled(bool arg1)
 {
     ui->frameUSB->setVisible(arg1);
+}
+
+void MainWindow::on_actionZeige_Daten_toggled(bool arg1)
+{
+    ui->tabWidget->setVisible(arg1);
 }
 
 
@@ -182,11 +190,23 @@ void MainWindow::on_pushConnect_clicked()
 
 void MainWindow::on_pushButtonSerialSend_clicked()
 {
-    int addr = ui->lineEditSerialSendAddress->text().toInt();
-    int data = ui->lineEditSerialSendData->text().toInt();
-    int len = debug.sendData(addr, data);
-    if(len == -1)
-        ui->textBrowser->append("Fehler beim senden, ist das Programm verbunden?");
-    else
-        ui->textBrowser->append("Gesendet: "+QString::number(len)+" bytes");
+    if(ui->lineEditSerialSendAddress->text() == "")
+         ui->textBrowser->append("Bitte eine gültige Adresse eingeben!");
+    else{
+        int addr = ui->lineEditSerialSendAddress->text().toInt();
+        if(ui->lineEditSerialSendData->text() == ""){
+
+            ui->textBrowser->append(debug.getString(addr));
+        }
+        else{
+            int data = ui->lineEditSerialSendData->text().toInt();
+            int len = debug.sendData(addr, data);
+            if(len == -1)
+                ui->textBrowser->append("Fehler beim senden, ist das Programm verbunden?");
+            else
+                ui->textBrowser->append("Gesendet: "+QString::number(len)+" bytes");
+        }
+
+    }
+
 }
