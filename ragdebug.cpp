@@ -28,6 +28,102 @@ bool RAGDebug::init(qint32 baud, QString port){
      }
 }
 
+int RAGDebug::sendData(unsigned char addresse, int64_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(8 | (1<<7));
+    for(int counter=8; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
+int RAGDebug::sendData(unsigned char addresse, int32_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(4 | (1<<7));
+    for(int counter=4; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
+int RAGDebug::sendData(unsigned char addresse, int16_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(2 | (1<<7));
+    for(int counter=2; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
+int RAGDebug::sendData(unsigned char addresse, int8_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(1 | (1<<7));
+    for(int counter=1; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
+int RAGDebug::sendData(unsigned char addresse, u_int64_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(8);
+    for(int counter=8; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
+int RAGDebug::sendData(unsigned char addresse, u_int32_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(4);
+    for(int counter=4; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
+int RAGDebug::sendData(unsigned char addresse, u_int16_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(2);
+    for(int counter=2; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
+int RAGDebug::sendData(unsigned char addresse, u_int8_t value)
+{
+    QByteArray data;
+    data.push_back('|');
+    data.push_back(addresse);
+    data.push_back(1);
+    for(int counter=1; counter>=0; counter--)
+        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back('&');
+    _sendData(data);
+}
+
 bool RAGDebug::readData(){
     while(serial->bytesAvailable()){
         QByteArray data = serial->readAll();
@@ -52,15 +148,8 @@ bool RAGDebug::readData(){
     return false;
 }
 
-int RAGDebug::sendData(unsigned char addresse, int wert){
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(sizeof(wert));
-    for(int counter=sizeof(wert)-1; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & wert)>>(counter*8));
-    data.push_back('&');
-
+int RAGDebug::_sendData(QByteArray data)
+{
     if(connected){
         serial->write(data);
         return data.length();

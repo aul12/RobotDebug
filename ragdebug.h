@@ -13,14 +13,21 @@ class RAGDebug : public QObject
 public:
     RAGDebug();
     bool init(qint32 baud, QString port);
-    int sendData(unsigned char addresse, int data);
+    int sendData(unsigned char addresse, int64_t value);
+    int sendData(unsigned char addresse, int32_t value);
+    int sendData(unsigned char addresse, int16_t value);
+    int sendData(unsigned char addresse, int8_t value);
+    int sendData(unsigned char addresse, u_int64_t value);
+    int sendData(unsigned char addresse, u_int32_t value);
+    int sendData(unsigned char addresse, u_int16_t value);
+    int sendData(unsigned char addresse, u_int8_t value);
     int getData(int addresse);
     QString getString(int addresse);
     bool readData();
     QSerialPort * serial;
 
 private:
-
+    int _sendData(QByteArray data);
     QByteArray buffer;
     int werte[256];
     bool connected;

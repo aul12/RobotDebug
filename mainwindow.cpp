@@ -200,7 +200,7 @@ void MainWindow::on_pushButtonSerialSend_clicked()
         }
         else{
             int data = ui->lineEditSerialSendData->text().toInt();
-            int len = debug.sendData(addr, data);
+            int len = debug.sendData(addr, (int64_t)data);
             if(len == -1)
                 ui->textBrowser->append("Fehler beim senden, ist das Programm verbunden?");
             else
