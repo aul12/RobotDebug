@@ -54,13 +54,13 @@ void MainWindow::updateUI(){
 void MainWindow::paintEvent(QPaintEvent *event)
 {
     float faktor = ui->tabWidget->x()/293.0;
-    if(ui->frameConsole->isVisible()){
-        if(ui->frameConsole->y() /182.0 < faktor)
-            faktor = ui->frameConsole->y() /182.0;
+    if(ui->groupBoxConsole->isVisible()){
+        if(ui->groupBoxConsole->y() /182.0 < faktor)
+            faktor = ui->groupBoxConsole->y() /182.0;
     }
-    else if(ui->frameUSB->isVisible()){
-        if(ui->frameUSB->y() /182.0 < faktor)
-            faktor = ui->frameUSB->y() /182.0;
+    else if(ui->groupBoxUSB->isVisible()){
+        if(ui->groupBoxUSB->y() /182.0 < faktor)
+            faktor = ui->groupBoxUSB->y() /182.0;
     }
 
     QPainter painter(this);
@@ -157,12 +157,12 @@ void MainWindow::readData(){
 
 void MainWindow::on_actionZeige_Konsole_toggled(bool arg1)
 {
-    ui->frameConsole->setVisible(arg1);
+    ui->groupBoxConsole->setVisible(arg1);
 }
 
 void MainWindow::on_actionZeige_USB_Optionen_toggled(bool arg1)
 {
-    ui->frameUSB->setVisible(arg1);
+    ui->groupBoxUSB->setVisible(arg1);
 }
 
 void MainWindow::on_actionZeige_Daten_toggled(bool arg1)
