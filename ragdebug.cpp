@@ -37,7 +37,7 @@ int RAGDebug::sendData(unsigned char addresse, int64_t value)
     for(int counter=8; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 int RAGDebug::sendData(unsigned char addresse, int32_t value)
@@ -49,7 +49,7 @@ int RAGDebug::sendData(unsigned char addresse, int32_t value)
     for(int counter=4; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 int RAGDebug::sendData(unsigned char addresse, int16_t value)
@@ -61,7 +61,7 @@ int RAGDebug::sendData(unsigned char addresse, int16_t value)
     for(int counter=2; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 int RAGDebug::sendData(unsigned char addresse, int8_t value)
@@ -73,7 +73,7 @@ int RAGDebug::sendData(unsigned char addresse, int8_t value)
     for(int counter=1; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 int RAGDebug::sendData(unsigned char addresse, u_int64_t value)
@@ -85,7 +85,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int64_t value)
     for(int counter=8; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 int RAGDebug::sendData(unsigned char addresse, u_int32_t value)
@@ -97,7 +97,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int32_t value)
     for(int counter=4; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 int RAGDebug::sendData(unsigned char addresse, u_int16_t value)
@@ -109,7 +109,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int16_t value)
     for(int counter=2; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 int RAGDebug::sendData(unsigned char addresse, u_int8_t value)
@@ -121,7 +121,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int8_t value)
     for(int counter=1; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
-    _sendData(data);
+    return _sendData(data);
 }
 
 bool RAGDebug::readData(){

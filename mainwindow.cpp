@@ -1,10 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QtSerialPort/QSerialPort>
-#include <QtSerialPort/QSerialPortInfo>
-#include <QtSerialPort>
-
 #include "ragdebug.h"
 #include "idPresets.hpp"
 

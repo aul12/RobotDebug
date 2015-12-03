@@ -5,6 +5,9 @@
 #include <QtGui>
 #include <QWidget>
 
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include <QtSerialPort>
 
 namespace Ui {
 class MainWindow;

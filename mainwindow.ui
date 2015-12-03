@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>606</width>
-    <height>520</height>
+    <width>608</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -679,7 +679,6 @@
    <zorder>verticalSpacer</zorder>
    <zorder>horizontalSpacer</zorder>
    <zorder>tabWidget</zorder>
-   <zorder>groupBoxUSB</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QMenuBar" name="menuBar">
@@ -687,7 +686,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>606</width>
+     <width>608</width>
      <height>19</height>
     </rect>
    </property>
@@ -701,7 +700,14 @@
     <addaction name="separator"/>
     <addaction name="actionRefresh"/>
    </widget>
+   <widget class="QMenu" name="menuOptionen">
+    <property name="title">
+     <string>Optionen</string>
+    </property>
+    <addaction name="actionVerwende_internes_Bluetooth"/>
+   </widget>
    <addaction name="menuVerbindung"/>
+   <addaction name="menuOptionen"/>
   </widget>
   <action name="actionZeige_Konsole">
    <property name="checkable">
@@ -754,6 +760,11 @@
    </property>
    <property name="text">
     <string>Zeige Daten</string>
+   </property>
+  </action>
+  <action name="actionVerwende_internes_Bluetooth">
+   <property name="text">
+    <string>Verwende internes Bluetooth</string>
    </property>
   </action>
  </widget>
