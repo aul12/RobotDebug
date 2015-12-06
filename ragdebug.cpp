@@ -33,7 +33,7 @@ int RAGDebug::sendData(unsigned char addresse, int64_t value)
     QByteArray data;
     data.push_back('|');
     data.push_back(addresse);
-    data.push_back(8 | (1<<7));
+    data.push_back(8);
     for(int counter=8; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
@@ -45,7 +45,7 @@ int RAGDebug::sendData(unsigned char addresse, int32_t value)
     QByteArray data;
     data.push_back('|');
     data.push_back(addresse);
-    data.push_back(4 | (1<<7));
+    data.push_back(4);
     for(int counter=4; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
@@ -57,7 +57,7 @@ int RAGDebug::sendData(unsigned char addresse, int16_t value)
     QByteArray data;
     data.push_back('|');
     data.push_back(addresse);
-    data.push_back(2 | (1<<7));
+    data.push_back(2);
     for(int counter=2; counter>=0; counter--)
         data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
     data.push_back('&');
@@ -69,9 +69,8 @@ int RAGDebug::sendData(unsigned char addresse, int8_t value)
     QByteArray data;
     data.push_back('|');
     data.push_back(addresse);
-    data.push_back(1 | (1<<7));
-    for(int counter=1; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back(1);
+    data.push_back(value);
     data.push_back('&');
     return _sendData(data);
 }
@@ -118,8 +117,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int8_t value)
     data.push_back('|');
     data.push_back(addresse);
     data.push_back(1);
-    for(int counter=1; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
+    data.push_back(value);
     data.push_back('&');
     return _sendData(data);
 }
@@ -134,7 +132,7 @@ bool RAGDebug::readData(){
 
             unsigned short begin = buffer.indexOf('|');    //Trennzeichen finden
             unsigned char addresse = (unsigned char)buffer.at(begin+1);
-            unsigned char lange = (unsigned char)buffer.at(begin+2);
+            unsigned char lange = (unsigned char)(buffer.at(begin+2) & 0b1111111);
             unsigned long tmp = 0;
             for(int counter=0; counter<lange; counter++){
                 tmp = (tmp<<8) | (unsigned char)buffer.at(begin+3+counter);
@@ -151,7 +149,7 @@ bool RAGDebug::readData(){
 int RAGDebug::_sendData(QByteArray data)
 {
     if(connected){
-        serial->write(data);
+       serial->write(data);
         return data.length();
     }
     return -1;
