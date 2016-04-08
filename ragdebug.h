@@ -23,6 +23,8 @@ public:
     int sendData(unsigned char addresse, u_int8_t value);
     int getData(int addresse);
     QString getString(int addresse);
+    int getData(int addresse, int faktor);
+    QString getString(int addresse, int faktor);
     bool readData();
     QSerialPort * serial;
 

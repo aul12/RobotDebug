@@ -29,9 +29,8 @@ enum ADDRESS{
     ADCB7 = 0xAF,
 
     //I²C
-    CMPS = 0xB0,
-    MPU = 0xB1,
-    BNO055 = 0xB2,
+    BNO055_GRAD = 0xB0,
+    BNO055_ROT = 0xB1,
     US0 = 0xB3,
     US1 = 0xB4,
     US2 = 0xB5,

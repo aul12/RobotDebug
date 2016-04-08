@@ -79,14 +79,14 @@ void MainWindow::paintEvent(QPaintEvent *event)
 }
 
 void MainWindow::updateLabels(){
-    ui->labelADCA0->setText("ADC0: " + debug.getString(ADCA0));
-    ui->labelADCA1->setText("ADC1: " + debug.getString(ADCA1));
-    ui->labelADCA2->setText("ADC2: " + debug.getString(ADCA2));
-    ui->labelADCA3->setText("ADC3: " + debug.getString(ADCA3));
-    ui->labelADCA4->setText("ADC4: " + debug.getString(ADCA4));
-    ui->labelADCA5->setText("ADC5: " + debug.getString(ADCA5));
-    ui->labelADCA6->setText("ADC6: " + debug.getString(ADCA6));
-    ui->labelADCA7->setText("ADC7: " + debug.getString(ADCA7));
+    ui->labelADCA0->setText("ADC0: " + debug.getString(ADCA0, 16));
+    ui->labelADCA1->setText("ADC1: " + debug.getString(ADCA1, 16));
+    ui->labelADCA2->setText("ADC2: " + debug.getString(ADCA2, 16));
+    ui->labelADCA3->setText("ADC3: " + debug.getString(ADCA3, 16));
+    ui->labelADCA4->setText("ADC4: " + debug.getString(ADCA4, 16));
+    ui->labelADCA5->setText("ADC5: " + debug.getString(ADCA5, 16));
+    ui->labelADCA6->setText("ADC6: " + debug.getString(ADCA6, 16));
+    ui->labelADCA7->setText("ADC7: " + debug.getString(ADCA7, 16));
 
     ui->labelADCB0->setText("ADC0: " + debug.getString(ADCB0));
     ui->labelADCB1->setText("ADC1: " + debug.getString(ADCB1));
@@ -97,9 +97,9 @@ void MainWindow::updateLabels(){
     ui->labelADCB6->setText("ADC6: " + debug.getString(ADCB6));
     ui->labelADCB7->setText("ADC7: " + debug.getString(ADCB7));
 
-    ui->labelI2C_CMPS->setText("CMPS: "+debug.getString(CMPS));
-    ui->labelI2C_MPU->setText("MPU: "+debug.getString(MPU));
-    ui->labelI2C_BNO->setText("BNO: "+debug.getString(BNO055));
+    ui->labelI2C_CMPS->setText("BNO Grad: "+debug.getString(BNO055_GRAD, 10));
+    ui->labelI2C_MPU->setText("BNO Rotation: "+debug.getString(BNO055_ROT, 1));
+    ui->labelI2C_BNO->setText("");
     ui->labelI2C_US0->setText("US0: "+debug.getString(US0));
     ui->labelI2C_US1->setText("US1: "+debug.getString(US1));
     ui->labelI2C_US2->setText("US2: "+debug.getString(US2));
@@ -111,15 +111,15 @@ void MainWindow::updateLabels(){
     ui->labelPixieH1->setText("Height: "+debug.getString(PIXIEH1));
     ui->labelPixieW1->setText("Width: "+debug.getString(PIXIEW1));
 
-    ui->labelBerechnetBallwinkel->setText("Ballwinkel: "+debug.getString(BALLWINKEL));
+    ui->labelBerechnetBallwinkel->setText("Ballwinkel: "+debug.getString(BALLWINKEL,2));
     ui->labelBerechnetFahrtwinkel->setText("Fahrtrichtung: "+debug.getString(FAHRTRICHTUNG));
     ui->labelBerechnetPosX->setText("Position X: "+debug.getString(POSX));
     ui->labelBerechnetPosY->setText("Position Y: "+debug.getString(POSY));
-    ui->labelBerechnetSollPhi->setText("Soll-Phi: "+debug.getString(SOLLPHI));
-    ui->labelBerechnetDeltaPhi->setText("Delta-Phi: "+debug.getString(DELTAPHI));
+    ui->labelBerechnetSollPhi->setText("Soll-Phi: "+debug.getString(SOLLPHI, 2));
+    ui->labelBerechnetDeltaPhi->setText("Delta-Phi: "+debug.getString(DELTAPHI, 2));
     ui->labelBerechnetProgramm->setText("Spielprogramm: "+debug.getString(SPIELPROGRAMM));
     ui->labelBerechnetKameraWinkel->setText("Kamerawinkel: "+debug.getString(KAMERA_WINKEL));
-    ui->labelBerechnetBallDistanz->setText("Balldistanz: "+debug.getString(BALLDISTANZ));
+    ui->labelBerechnetBallDistanz->setText("Balldistanz: "+debug.getString(BALLDISTANZ, 24));
 
     ui->labelDigitalSchalterMotor->setText("Schalter Motor: "+debug.getString(MOTORSCHALTER));
     ui->labelDigitalSchalterDisplay->setText("Schalter Display: "+debug.getString(DISPLAYSCHALTER));
@@ -144,9 +144,9 @@ void MainWindow::readData(){
     if(debug.readData()){
         y_pos = debug.getData(POSX);
         x_pos = debug.getData(POSY);
-        roboter_drehung = debug.getData(DELTAPHI);
-        ball_winkel = debug.getData(BALLWINKEL);
-        ball_abstand = debug.getData(BALLDISTANZ);
+        roboter_drehung = debug.getData(DELTAPHI)*2;
+        ball_winkel = debug.getData(BALLWINKEL)*2;
+        ball_abstand = (256 - debug.getData(BALLDISTANZ));
     }
 }
 
@@ -180,7 +180,7 @@ void MainWindow::on_pushConnect_clicked()
     if(result)
         ui->textBrowser->append("Verbunden");
     else
-        ui->textBrowser->append("Fehler beim verbinden");
+        ui->textBrowser->append("Fehler beim Verbinden");
     QObject::connect(debug.serial, SIGNAL(readyRead()), this, SLOT(readData()) );
 }
 

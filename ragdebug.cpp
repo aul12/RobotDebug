@@ -127,18 +127,10 @@ bool RAGDebug::readData(){
         QByteArray data = serial->readAll();
         buffer.append(data);
         serial->clear();
-
-        if(buffer.contains('&')){
-
+        if(buffer.contains('&') && buffer.contains('|') && buffer.length() > buffer.indexOf('|')+3){
             unsigned short begin = buffer.indexOf('|');    //Trennzeichen finden
             unsigned char addresse = (unsigned char)buffer.at(begin+1);
-            unsigned char lange = (unsigned char)(buffer.at(begin+2) & 0b1111111);
-            unsigned long tmp = 0;
-            for(int counter=0; counter<lange; counter++){
-                tmp = (tmp<<8) | (unsigned char)buffer.at(begin+3+counter);
-            }
-            int wert = (int) tmp;
-            werte[addresse] = wert;
+            werte[addresse] = buffer.at(begin+2)<0?buffer.at(begin+2)+256:buffer.at(begin+2);
             buffer.clear();
             return true;
         }
@@ -155,6 +147,10 @@ int RAGDebug::_sendData(QByteArray data)
     return -1;
 }
 
+int RAGDebug::getData(int addresse, int faktor){
+    return (werte[addresse] * faktor);
+}
+
 int RAGDebug::getData(int addresse){
     return werte[addresse];
 }
@@ -162,6 +158,11 @@ int RAGDebug::getData(int addresse){
 QString RAGDebug::getString(int addresse)
 {
     return QString::number(this->getData(addresse));
+}
+
+QString RAGDebug::getString(int addresse, int faktor)
+{
+    return QString::number(this->getData(addresse, faktor));
 }
 
 
