@@ -75,7 +75,7 @@ int RAGDebug::sendData(unsigned char addresse, int8_t value)
     return _sendData(data);
 }
 
-int RAGDebug::sendData(unsigned char addresse, u_int64_t value)
+int RAGDebug::sendData(unsigned char addresse, uint64_t value)
 {
     QByteArray data;
     data.push_back('|');
@@ -87,7 +87,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int64_t value)
     return _sendData(data);
 }
 
-int RAGDebug::sendData(unsigned char addresse, u_int32_t value)
+int RAGDebug::sendData(unsigned char addresse, uint32_t value)
 {
     QByteArray data;
     data.push_back('|');
@@ -99,7 +99,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int32_t value)
     return _sendData(data);
 }
 
-int RAGDebug::sendData(unsigned char addresse, u_int16_t value)
+int RAGDebug::sendData(unsigned char addresse, uint16_t value)
 {
     QByteArray data;
     data.push_back('|');
@@ -111,7 +111,7 @@ int RAGDebug::sendData(unsigned char addresse, u_int16_t value)
     return _sendData(data);
 }
 
-int RAGDebug::sendData(unsigned char addresse, u_int8_t value)
+int RAGDebug::sendData(unsigned char addresse, uint8_t value)
 {
     QByteArray data;
     data.push_back('|');

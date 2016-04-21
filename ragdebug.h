@@ -17,10 +17,10 @@ public:
     int sendData(unsigned char addresse, int32_t value);
     int sendData(unsigned char addresse, int16_t value);
     int sendData(unsigned char addresse, int8_t value);
-    int sendData(unsigned char addresse, u_int64_t value);
-    int sendData(unsigned char addresse, u_int32_t value);
-    int sendData(unsigned char addresse, u_int16_t value);
-    int sendData(unsigned char addresse, u_int8_t value);
+    int sendData(unsigned char addresse, uint64_t value);
+    int sendData(unsigned char addresse, uint32_t value);
+    int sendData(unsigned char addresse, uint16_t value);
+    int sendData(unsigned char addresse, uint8_t value);
     int getData(int addresse);
     QString getString(int addresse);
     int getData(int addresse, int faktor);

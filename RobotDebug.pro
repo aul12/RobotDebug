@@ -23,5 +23,5 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-LIBS += -ludev
+#LIBS += -ludev
 PKGCONFIG += libudev
