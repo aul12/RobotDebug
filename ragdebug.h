@@ -13,14 +13,7 @@ class RAGDebug : public QObject
 public:
     RAGDebug();
     bool init(qint32 baud, QString port);
-    int sendData(unsigned char addresse, int64_t value);
-    int sendData(unsigned char addresse, int32_t value);
-    int sendData(unsigned char addresse, int16_t value);
-    int sendData(unsigned char addresse, int8_t value);
-    int sendData(unsigned char addresse, uint64_t value);
-    int sendData(unsigned char addresse, uint32_t value);
-    int sendData(unsigned char addresse, uint16_t value);
-    int sendData(unsigned char addresse, uint8_t value);
+    int sendData(unsigned char addresse, int value);
     int getData(int addresse);
     QString getString(int addresse);
     int getData(int addresse, int faktor);

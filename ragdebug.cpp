@@ -28,95 +28,12 @@ bool RAGDebug::init(qint32 baud, QString port){
      }
 }
 
-int RAGDebug::sendData(unsigned char addresse, int64_t value)
-{
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(8);
-    for(int counter=8; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
-    data.push_back('&');
-    return _sendData(data);
-}
 
-int RAGDebug::sendData(unsigned char addresse, int32_t value)
+int RAGDebug::sendData(unsigned char addresse, int value)
 {
     QByteArray data;
     data.push_back('|');
     data.push_back(addresse);
-    data.push_back(4);
-    for(int counter=4; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
-    data.push_back('&');
-    return _sendData(data);
-}
-
-int RAGDebug::sendData(unsigned char addresse, int16_t value)
-{
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(2);
-    for(int counter=2; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
-    data.push_back('&');
-    return _sendData(data);
-}
-
-int RAGDebug::sendData(unsigned char addresse, int8_t value)
-{
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(1);
-    data.push_back(value);
-    data.push_back('&');
-    return _sendData(data);
-}
-
-int RAGDebug::sendData(unsigned char addresse, uint64_t value)
-{
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(8);
-    for(int counter=8; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
-    data.push_back('&');
-    return _sendData(data);
-}
-
-int RAGDebug::sendData(unsigned char addresse, uint32_t value)
-{
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(4);
-    for(int counter=4; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
-    data.push_back('&');
-    return _sendData(data);
-}
-
-int RAGDebug::sendData(unsigned char addresse, uint16_t value)
-{
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(2);
-    for(int counter=2; counter>=0; counter--)
-        data.push_back((0xFF<<(counter*8) & value)>>(counter*8));
-    data.push_back('&');
-    return _sendData(data);
-}
-
-int RAGDebug::sendData(unsigned char addresse, uint8_t value)
-{
-    QByteArray data;
-    data.push_back('|');
-    data.push_back(addresse);
-    data.push_back(1);
     data.push_back(value);
     data.push_back('&');
     return _sendData(data);
