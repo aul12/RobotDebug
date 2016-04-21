@@ -88,22 +88,12 @@ void MainWindow::updateLabels(){
     ui->labelADCA6->setText("ADC6: " + debug.getString(ADCA6, 16));
     ui->labelADCA7->setText("ADC7: " + debug.getString(ADCA7, 16));
 
-    ui->labelADCB0->setText("ADC0: " + debug.getString(ADCB0));
-    ui->labelADCB1->setText("ADC1: " + debug.getString(ADCB1));
-    ui->labelADCB2->setText("ADC2: " + debug.getString(ADCB2));
-    ui->labelADCB3->setText("ADC3: " + debug.getString(ADCB3));
-    ui->labelADCB4->setText("ADC4: " + debug.getString(ADCB4));
-    ui->labelADCB5->setText("ADC5: " + debug.getString(ADCB5));
-    ui->labelADCB6->setText("ADC6: " + debug.getString(ADCB6));
-    ui->labelADCB7->setText("ADC7: " + debug.getString(ADCB7));
-
-    ui->labelI2C_CMPS->setText("BNO Grad: "+debug.getString(BNO055_GRAD, 10));
-    ui->labelI2C_MPU->setText("BNO Rotation: "+debug.getString(BNO055_ROT, 1));
+    ui->labelI2C_CMPS->setText("BNO Grad: "+debug.getString(BNO055_GRAD, 2));
+    ui->labelI2C_MPU->setText("BNO Rotation: "+debug.getString(BNO055_ROT, 256));
     ui->labelI2C_BNO->setText("");
     ui->labelI2C_US0->setText("US0: "+debug.getString(US0));
     ui->labelI2C_US1->setText("US1: "+debug.getString(US1));
     ui->labelI2C_US2->setText("US2: "+debug.getString(US2));
-    ui->labelI2C_US3->setText("US3: "+debug.getString(US3));
 
     ui->labelPixieStatus->setText("Status: "+debug.getString(PIXIE_ERROR));
     ui->labelPixieX1->setText("X: "+debug.getString(PIXIEX1));
@@ -112,7 +102,6 @@ void MainWindow::updateLabels(){
     ui->labelPixieW1->setText("Width: "+debug.getString(PIXIEW1));
 
     ui->labelBerechnetBallwinkel->setText("Ballwinkel: "+debug.getString(BALLWINKEL,2));
-    ui->labelBerechnetFahrtwinkel->setText("Fahrtrichtung: "+debug.getString(FAHRTRICHTUNG));
     ui->labelBerechnetPosX->setText("Position X: "+debug.getString(POSX));
     ui->labelBerechnetPosY->setText("Position Y: "+debug.getString(POSY));
     ui->labelBerechnetSollPhi->setText("Soll-Phi: "+debug.getString(SOLLPHI, 2));
@@ -120,6 +109,7 @@ void MainWindow::updateLabels(){
     ui->labelBerechnetProgramm->setText("Spielprogramm: "+debug.getString(SPIELPROGRAMM));
     ui->labelBerechnetKameraWinkel->setText("Kamerawinkel: "+debug.getString(KAMERA_WINKEL));
     ui->labelBerechnetBallDistanz->setText("Balldistanz: "+debug.getString(BALLDISTANZ, 24));
+    ui->labelBerechnetBallda->setText("Ballda: " + debug.getString(BALLDA));
 
     ui->labelDigitalSchalterMotor->setText("Schalter Motor: "+debug.getString(MOTORSCHALTER));
     ui->labelDigitalSchalterDisplay->setText("Schalter Display: "+debug.getString(DISPLAYSCHALTER));
@@ -128,15 +118,16 @@ void MainWindow::updateLabels(){
     ui->labelDigitalSchalterProgrammRechts->setText("Schalter Programm Rechts: "+debug.getString(PROGRAMMRECHTS));
     ui->labelDigitalSchalterEEPROM->setText("Taster EEPROM: "+debug.getString(EEPROMTASTER));
     ui->labelDigitalLichtschranke->setText("Lichtschranke: "+debug.getString(LICHTSCHRANKE));
+    ui->labelDigitalSchalterAktiv->setText("Schalter Aktiv/Passiv: " + debug.getString(AKTIVSCHALTER));
 
-    ui->labelMotor0->setText("Motor 0: "+debug.getString(MOTO0));
-    ui->labelMotor1->setText("Motor 1: "+debug.getString(MOTO1));
-    ui->labelMotor2->setText("Motor 2: "+debug.getString(MOTO2));
-    ui->labelMotor3->setText("Motor 3: "+debug.getString(MOTO3));
+    ui->labelMotor0->setText("Motor 0: "+debug.getString(MOTO0, 8));
+    ui->labelMotor1->setText("Motor 1: "+debug.getString(MOTO1, 8));
+    ui->labelMotor2->setText("Motor 2: "+debug.getString(MOTO2, 8));
+    ui->labelMotor3->setText("Motor 3: "+debug.getString(MOTO3, 8));
     ui->labelMotorDribbler->setText("Dribbler: "+debug.getString(DRIBBLER));
     ui->labelMotorSchuss->setText("Schuss: "+debug.getString(SCHUSS));
     ui->labelMotorOutStatus->setText("Out-Status: "+debug.getString(OUTSTATUS));
-    ui->labelMotorOutWinkel->setText("Out-Winkel: "+debug.getString(OUTWINKEL));
+    ui->labelMotorOutWinkel->setText("Out-Winkel: "+debug.getString(OUTWINKEL, 2));
 
 }
 

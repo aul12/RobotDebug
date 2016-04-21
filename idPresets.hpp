@@ -18,23 +18,12 @@ enum ADDRESS{
     ADCA6 = 0xA6,
     ADCA7 = 0xA7,
 
-    //ADC Channel-B
-    ADCB0 = 0xA8,
-    ADCB1 = 0xA9,
-    ADCB2 = 0xAA,
-    ADCB3 = 0xAB,
-    ADCB4 = 0xAC,
-    ADCB5 = 0xAD,
-    ADCB6 = 0xAE,
-    ADCB7 = 0xAF,
-
     //I²C
     BNO055_GRAD = 0xB0,
     BNO055_ROT = 0xB1,
     US0 = 0xB3,
     US1 = 0xB4,
     US2 = 0xB5,
-    US3 = 0xB6,
 
     PIXIE_ERROR = 0xB7,
     PIXIEX1 = 0xB8,
@@ -44,7 +33,6 @@ enum ADDRESS{
 
     //Berechnete Werte
     BALLWINKEL = 0xC0,
-    FAHRTRICHTUNG = 0xC1,
     POSX = 0xC2,
     POSY = 0xC3,
     SOLLPHI = 0xC4,
@@ -52,6 +40,7 @@ enum ADDRESS{
     SPIELPROGRAMM = 0xC6,
     KAMERA_WINKEL = 0xC7,
     BALLDISTANZ = 0xC8,
+    BALLDA = 0xC9,
 
     //Digital
     MOTORSCHALTER = 0xD0,
@@ -61,7 +50,7 @@ enum ADDRESS{
     PROGRAMMRECHTS = 0xD4,
     EEPROMTASTER = 0xD5,
     LICHTSCHRANKE = 0xD6,
-
+    AKTIVSCHALTER = 0xD7,
 
     //Motor
     MOTO0 = 0xE0,

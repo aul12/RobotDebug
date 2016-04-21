@@ -54,7 +54,7 @@
       </property>
       <widget class="QWidget" name="tabADCA">
        <attribute name="title">
-        <string>ADC-A</string>
+        <string>ADC</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
@@ -128,82 +128,6 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tabADCB">
-       <attribute name="title">
-        <string>ADC-B</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_6">
-        <item>
-         <widget class="QLabel" name="labelADCB0">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelADCB1">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelADCB2">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelADCB3">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelADCB4">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelADCB5">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelADCB6">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelADCB7">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_4">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
       <widget class="QWidget" name="tabBerechnet">
        <attribute name="title">
         <string>Berechnete Werte</string>
@@ -218,13 +142,6 @@
         </item>
         <item>
          <widget class="QLabel" name="labelBerechnetBallDistanz">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelBerechnetFahrtwinkel">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -267,6 +184,13 @@
         </item>
         <item>
          <widget class="QLabel" name="labelBerechnetKameraWinkel">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelBerechnetBallda">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -329,13 +253,6 @@
         </item>
         <item>
          <widget class="QLabel" name="labelI2C_US2">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelI2C_US3">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -453,6 +370,13 @@
         </item>
         <item>
          <widget class="QLabel" name="labelDigitalSchalterEEPROM">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelDigitalSchalterAktiv">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -653,7 +577,7 @@
             </size>
            </property>
            <property name="text">
-            <string>9600</string>
+            <string>38400</string>
            </property>
           </widget>
          </item>
@@ -687,7 +611,7 @@
      <x>0</x>
      <y>0</y>
      <width>608</width>
-     <height>19</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuVerbindung">
