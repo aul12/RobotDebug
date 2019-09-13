@@ -1,4 +1,8 @@
-| Anfangszeichen                              | Adresse                                 | Länge                                                               | Byte 0           | Byte ...            | Endzeichen                                   |
+# RobotDebug
+
+Desktop Program for Visualizing Sensor Data for RoboCup-Junior
+
+## Package encoding
+| Start | Address | Length | Byte 0 | Byte ... | Termination character |
 |---------------------------------------------|-----------------------------------------|---------------------------------------------------------------------|------------------|---------------------|----------------------------------------------|
-| Erstes Zeichen des Datenpakets (zum parsen) | 8bit-Addresse um Daten zu unterscheiden | Länge (in Bytes) der Daten (Bit 7 gesetzt -> signed sonst unsigned) | Erstes Datenbyte | Folgende Datenbytes | Letztes Zeichen des Datenpakets (zum parsen) |
-| &#124;                                           | 0xC2                                    | 4 &#124; (1<<7)                                                          | 58               | 237                 | &                                            |
+| &#124;                                           | ID of the field | Number of bytes | Data | more Data | &                                            |
